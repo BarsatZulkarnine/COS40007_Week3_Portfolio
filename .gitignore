@@ -1,0 +1,6 @@
+# Ignore ampcs 2 related files
+ampcs2/
+ampcs2/*.log
+ampcs2/*.tmp
+ampc2/Boning.csv
+ampc2/Slicing.csv
