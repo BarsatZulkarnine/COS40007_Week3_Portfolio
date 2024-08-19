@@ -17,6 +17,12 @@ def compute_composites(data):
     data['RMS_xyz'] = np.sqrt((data.iloc[:, 1] ** 2 + data.iloc[:, 2] ** 2 + data.iloc[:, 3] ** 2) / 3)
     data['Roll'] = np.degrees(np.arctan2(data.iloc[:, 2], np.sqrt(data.iloc[:, 1] ** 2 + data.iloc[:, 3] ** 2)))
     data['Pitch'] = np.degrees(np.arctan2(data.iloc[:, 1], np.sqrt(data.iloc[:, 2] ** 2 + data.iloc[:, 3] ** 2)))
+    data['RMS_xy_2'] = np.sqrt((data.iloc[:, 4] ** 2 + data.iloc[:, 5] ** 2) / 2)
+    data['RMS_yz_2'] = np.sqrt((data.iloc[:, 5] ** 2 + data.iloc[:, 6] ** 2) / 2)
+    data['RMS_zx_2'] = np.sqrt((data.iloc[:, 6] ** 2 + data.iloc[:, 4] ** 2) / 2)
+    data['RMS_xyz_2'] = np.sqrt((data.iloc[:, 4] ** 2 + data.iloc[:, 5] ** 2 + data.iloc[:, 6] ** 2) / 3)
+    data['Roll_2'] = np.degrees(np.arctan2(data.iloc[:, 5], np.sqrt(data.iloc[:, 4] ** 2 + data.iloc[:, 6] ** 2)))
+    data['Pitch_2'] = np.degrees(np.arctan2(data.iloc[:, 4], np.sqrt(data.iloc[:, 5] ** 2 + data.iloc[:, 6] ** 2)))
     return data
 # Select the column sets based on your student number ending
 column_set_1 = compute_composites(combined_data[['Frame'] + column_mapping[0][0]])
